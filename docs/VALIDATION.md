@@ -8,7 +8,7 @@ Local environment: Python 3.14.6, Pydantic 2.13.4, NetworkX 3.6.1. Editable pack
 - `ruff check .`: **all checks passed**. See [raw lint output](../reports/lint-results.txt).
 - All required CLI commands exercised by tests, including import, simulation, proposed refinement, analyses, B1–B9, counterfactual preview, explicit approval, duel, audit, version diff and HTML/JSON export.
 - A–G original-fixture experiment checks: **9/9 true**. Full evidence and measured timings: [experiments.json](../reports/experiments.json).
-- Local browser checks: three-thread score rendered, node search found CLIMAX, node click revealed state requirements/knowledge/evidence, sparse attention table rendered, typed polyphony heatmap rendered, nine benchmark records displayed with unassigned model/human scores.
+- Local browser checks: three-thread score rendered, node search found CLIMAX, node click revealed state requirements/knowledge/evidence, sparse attention table and selectable foreshadowing matrix rendered, typed polyphony heatmap rendered, nine benchmark records displayed with unassigned model/human scores.
 - HTML export escapes imported script delimiters and uses text-only DOM insertion; an injection regression test passes.
 
 ## Context and usage measurement
@@ -24,3 +24,5 @@ Application demo provider usage: **0 API calls, 0 billed prompt/completion token
 Deterministic core invariants, proposed/canon separation, ancestral constraints, failed-event atomicity, knowledge/irreversibility, locked snapshots, cache invalidation and budget limits have regression tests. The original fixture is AI-assisted synthetic structural test data. No external literary corpus or human panel was used.
 
 See [implementation status and limitations](LIMITATIONS.md) for partial/unimplemented mechanisms, then [roadmap](ROADMAP.md) for priorities. Model-assisted creative generation, independent model critics, calibrated emotion/novelty judgments and multi-timeline time travel remain research work. The local HTML page is a read-only inspector.
+
+Published project: [SakuraEntropia/NARRATIVE](https://github.com/SakuraEntropia/NARRATIVE), public `main` branch. CI runs Python 3.12, 3.13 and 3.14; the local execution above is the recorded Python 3.14 result.

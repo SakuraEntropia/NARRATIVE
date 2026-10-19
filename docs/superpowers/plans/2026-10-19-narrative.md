@@ -47,4 +47,4 @@ Files: cli.py, visualization.py, README.md, pyproject.toml, CI workflow.
 - [x] Exercise all CLI commands in temporary databases.
 - [x] Export computed inspection data to escaped self-contained HTML.
 - [x] Run full tests/lint, save actual execution and cost reports, document partial/unvalidated features.
-- [ ] Initialize isolated Git repository, create public GitHub repository and push only project files; verify remote commit.
+- [x] Initialize isolated Git repository, create public GitHub repository and push only project files; verify remote commit.
