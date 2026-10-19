@@ -1,0 +1,2465 @@
+{
+  "title": "The Last Tide Ledger",
+  "medium": "screen",
+  "version": "complex_low_agency",
+  "nodes": [
+    {
+      "id": "STORY",
+      "kind": "Story",
+      "label": "The Last Tide Ledger",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:STORY",
+          "node_id": "STORY"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "level": 0,
+      "purpose": "Truth, safety, and civic continuity collide during a tidal evacuation.",
+      "hard_constraints": [
+        {
+          "id": "preserve_district",
+          "key": "preserve_district",
+          "expected": true,
+          "scope": "design",
+          "description": "The outline must retain the commitment to district survival"
+        }
+      ],
+      "attributes": {
+        "preserve_district": true,
+        "premise": "An archivist must expose a falsified flood model while a gate engineer and a councillor pursue incompatible duties."
+      }
+    },
+    {
+      "id": "THEME",
+      "kind": "Theme",
+      "label": "Truth can preserve people while destroying institutions",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:THEME",
+          "node_id": "THEME"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "level": 0,
+      "attributes": {
+        "theme": "truth versus stewardship",
+        "intentional_dissonance": true
+      }
+    },
+    {
+      "id": "ACT_1",
+      "kind": "Act",
+      "label": "Evidence before the surge",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ACT_1",
+          "node_id": "ACT_1"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "level": 1,
+      "parent_id": "STORY",
+      "hard_constraints": [
+        {
+          "id": "preserve_district",
+          "key": "preserve_district",
+          "expected": true,
+          "scope": "design",
+          "description": "The outline must retain the commitment to district survival"
+        }
+      ],
+      "attributes": {
+        "preserve_district": true
+      },
+      "purpose": "Establish three distinct duties and the one-use mechanism."
+    },
+    {
+      "id": "ACT_2",
+      "kind": "Act",
+      "label": "Competing obligations",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ACT_2",
+          "node_id": "ACT_2"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "level": 1,
+      "parent_id": "STORY"
+    },
+    {
+      "id": "ACT_3",
+      "kind": "Act",
+      "label": "A public and irreversible choice",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ACT_3",
+          "node_id": "ACT_3"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "level": 1,
+      "parent_id": "STORY"
+    },
+    {
+      "id": "MARA",
+      "kind": "Character",
+      "label": "Mara, tidal records archivist",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:MARA",
+          "node_id": "MARA"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "threads": [
+        "mara"
+      ],
+      "attributes": {
+        "motivation": "Keep witness testimony publicly usable",
+        "value_conflict": "truth versus anonymity"
+      }
+    },
+    {
+      "id": "IVO",
+      "kind": "Character",
+      "label": "Ivo, floodgate engineer",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:IVO",
+          "node_id": "IVO"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "threads": [
+        "ivo"
+      ],
+      "attributes": {
+        "motivation": "Evacuate the lower district regardless of official permission",
+        "value_conflict": "public duty versus procedure"
+      }
+    },
+    {
+      "id": "SERA",
+      "kind": "Character",
+      "label": "Sera, continuity councillor",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:SERA",
+          "node_id": "SERA"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "threads": [
+        "sera"
+      ],
+      "attributes": {
+        "motivation": "Prevent panic and preserve civic trust",
+        "value_conflict": "stewardship versus concealment"
+      }
+    },
+    {
+      "id": "FUSE_RULE",
+      "kind": "Rule",
+      "label": "The manual gate severs its only fuse",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:FUSE_RULE",
+          "node_id": "FUSE_RULE"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 0,
+      "order": 1,
+      "attributes": {
+        "world_level": "fundamental",
+        "sensory_detail": "A ceramic fuse becomes black glass after one firing."
+      },
+      "transition": {
+        "effects": {
+          "world.manual_gate_allowed": true
+        },
+        "consequences": [
+          "Only a manual firing can close the gate during a power loss."
+        ]
+      }
+    },
+    {
+      "id": "SECRET",
+      "kind": "Fact",
+      "label": "The council's safe-water model was falsified",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:SECRET",
+          "node_id": "SECRET"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "locked": true,
+      "attributes": {
+        "secret": true,
+        "author_knows": true,
+        "audience_knows": false
+      }
+    },
+    {
+      "id": "FUSE_IMAGE",
+      "kind": "Foreshadowing",
+      "label": "Ivo displays a spent black fuse",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:FUSE_IMAGE",
+          "node_id": "FUSE_IMAGE"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 1,
+      "order": 2,
+      "parent_id": "ACT_1",
+      "level": 2,
+      "threads": [
+        "ivo"
+      ],
+      "attributes": {
+        "visual_intent": "The unbroken white fuse is framed beside the spent black one.",
+        "motifs": [
+          "BLACK_GLASS"
+        ],
+        "theme": "one-use responsibility"
+      }
+    },
+    {
+      "id": "BLACK_GLASS",
+      "kind": "Motif",
+      "label": "Black glass records an action that cannot be undone",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:BLACK_GLASS",
+          "node_id": "BLACK_GLASS"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "PROMISE",
+      "kind": "Scene",
+      "label": "Mara promises displaced witnesses a public record",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:PROMISE",
+          "node_id": "PROMISE"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 2,
+      "order": 3,
+      "parent_id": "ACT_1",
+      "level": 2,
+      "threads": [
+        "mara"
+      ],
+      "attributes": {
+        "motivation": "The witnesses' protection depends on public acknowledgement",
+        "emotion": "attachment",
+        "theme": "truth",
+        "stakes": "Witnesses will disappear from relief rolls without a record",
+        "tension": 2
+      },
+      "transition": {
+        "participants": [
+          "MARA"
+        ],
+        "effects": {
+          "character.mara.committed_to_witnesses": true
+        },
+        "knowledge_updates": {
+          "MARA": [
+            "witnesses_need_public_record"
+          ]
+        }
+      }
+    },
+    {
+      "id": "DELAY",
+      "kind": "Decision",
+      "label": "Sera postpones publication to finish evacuation",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:DELAY",
+          "node_id": "DELAY"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 3,
+      "order": 4,
+      "parent_id": "ACT_1",
+      "level": 2,
+      "threads": [
+        "sera"
+      ],
+      "attributes": {
+        "emotion": "dread",
+        "theme": "stewardship",
+        "value_conflict": "safety versus accountability",
+        "stakes": "The last causeway is overcrowded",
+        "tension": 3,
+        "agency_override": "external mechanism determines outcome"
+      },
+      "transition": {
+        "participants": [],
+        "effects": {
+          "world.publication_delayed": true
+        }
+      }
+    },
+    {
+      "id": "CRACKS",
+      "kind": "Scene",
+      "label": "Ivo measures cracks beneath the tide gauge",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:CRACKS",
+          "node_id": "CRACKS"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 4,
+      "order": 5,
+      "parent_id": "ACT_1",
+      "level": 2,
+      "threads": [
+        "ivo"
+      ],
+      "attributes": {
+        "motivation": "Test the physical gate instead of trusting the council model",
+        "emotion": "alarm",
+        "theme": "care through work",
+        "tension": 4,
+        "sensory_detail": "Saltwater pulses through a chalk line."
+      },
+      "transition": {
+        "participants": [
+          "IVO"
+        ],
+        "effects": {
+          "world.gate_risk_verified": true
+        },
+        "knowledge_updates": {
+          "IVO": [
+            "gate_at_risk"
+          ]
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_01",
+      "kind": "Scene",
+      "label": "Mara verifies witness register 1",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_01",
+          "node_id": "INTERLUDE_01"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 5,
+      "order": 6,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "mara"
+      ],
+      "purpose": "Preserve named evidence before the archive floods",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Preserve named evidence before the archive floods",
+        "emotion": "resolve",
+        "theme": "truth",
+        "tension": 3.25
+      },
+      "transition": {
+        "participants": [
+          "MARA"
+        ],
+        "effects": {
+          "character.mara.progress_1": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_02",
+      "kind": "Scene",
+      "label": "Ivo moves evacuation chain 2",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_02",
+          "node_id": "INTERLUDE_02"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 6,
+      "order": 7,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "ivo"
+      ],
+      "purpose": "Make the gate reachable without waiting for council orders",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Make the gate reachable without waiting for council orders",
+        "emotion": "strain",
+        "theme": "care through work",
+        "tension": 3.5
+      },
+      "transition": {
+        "participants": [
+          "IVO"
+        ],
+        "effects": {
+          "character.ivo.progress_2": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_03",
+      "kind": "Scene",
+      "label": "Sera negotiates shelter allocation 3",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_03",
+          "node_id": "INTERLUDE_03"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 7,
+      "order": 8,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "sera"
+      ],
+      "purpose": "Keep rival districts cooperating during evacuation",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Keep rival districts cooperating during evacuation",
+        "emotion": "restraint",
+        "theme": "stewardship",
+        "tension": 3.75
+      },
+      "transition": {
+        "participants": [
+          "SERA"
+        ],
+        "effects": {
+          "character.sera.progress_3": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_04",
+      "kind": "Scene",
+      "label": "Mara verifies witness register 4",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_04",
+          "node_id": "INTERLUDE_04"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 8,
+      "order": 9,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "mara"
+      ],
+      "purpose": "Preserve named evidence before the archive floods",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Preserve named evidence before the archive floods",
+        "emotion": "resolve",
+        "theme": "truth",
+        "tension": 4.0
+      },
+      "transition": {
+        "participants": [
+          "MARA"
+        ],
+        "effects": {
+          "character.mara.progress_4": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_05",
+      "kind": "Scene",
+      "label": "Ivo moves evacuation chain 5",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_05",
+          "node_id": "INTERLUDE_05"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 9,
+      "order": 10,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "ivo"
+      ],
+      "purpose": "Make the gate reachable without waiting for council orders",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Make the gate reachable without waiting for council orders",
+        "emotion": "strain",
+        "theme": "care through work",
+        "tension": 4.25
+      },
+      "transition": {
+        "participants": [
+          "IVO"
+        ],
+        "effects": {
+          "character.ivo.progress_5": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_06",
+      "kind": "Scene",
+      "label": "Sera negotiates shelter allocation 6",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_06",
+          "node_id": "INTERLUDE_06"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 10,
+      "order": 11,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "sera"
+      ],
+      "purpose": "Keep rival districts cooperating during evacuation",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Keep rival districts cooperating during evacuation",
+        "emotion": "restraint",
+        "theme": "stewardship",
+        "tension": 4.5
+      },
+      "transition": {
+        "participants": [
+          "SERA"
+        ],
+        "effects": {
+          "character.sera.progress_6": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_07",
+      "kind": "Scene",
+      "label": "Mara verifies witness register 7",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_07",
+          "node_id": "INTERLUDE_07"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 11,
+      "order": 12,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "mara"
+      ],
+      "purpose": "Preserve named evidence before the archive floods",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Preserve named evidence before the archive floods",
+        "emotion": "resolve",
+        "theme": "truth",
+        "tension": 4.75
+      },
+      "transition": {
+        "participants": [
+          "MARA"
+        ],
+        "effects": {
+          "character.mara.progress_7": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_08",
+      "kind": "Scene",
+      "label": "Ivo moves evacuation chain 8",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_08",
+          "node_id": "INTERLUDE_08"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 12,
+      "order": 13,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "ivo"
+      ],
+      "purpose": "Make the gate reachable without waiting for council orders",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Make the gate reachable without waiting for council orders",
+        "emotion": "strain",
+        "theme": "care through work",
+        "tension": 5.0
+      },
+      "transition": {
+        "participants": [
+          "IVO"
+        ],
+        "effects": {
+          "character.ivo.progress_8": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_09",
+      "kind": "Scene",
+      "label": "Sera negotiates shelter allocation 9",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_09",
+          "node_id": "INTERLUDE_09"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 13,
+      "order": 14,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "sera"
+      ],
+      "purpose": "Keep rival districts cooperating during evacuation",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Keep rival districts cooperating during evacuation",
+        "emotion": "restraint",
+        "theme": "stewardship",
+        "tension": 5.25
+      },
+      "transition": {
+        "participants": [
+          "SERA"
+        ],
+        "effects": {
+          "character.sera.progress_9": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_10",
+      "kind": "Scene",
+      "label": "Mara verifies witness register 10",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_10",
+          "node_id": "INTERLUDE_10"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 14,
+      "order": 15,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "mara"
+      ],
+      "purpose": "Preserve named evidence before the archive floods",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Preserve named evidence before the archive floods",
+        "emotion": "resolve",
+        "theme": "truth",
+        "tension": 5.5
+      },
+      "transition": {
+        "participants": [
+          "MARA"
+        ],
+        "effects": {
+          "character.mara.progress_10": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_11",
+      "kind": "Scene",
+      "label": "Ivo moves evacuation chain 11",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_11",
+          "node_id": "INTERLUDE_11"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 15,
+      "order": 16,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "ivo"
+      ],
+      "purpose": "Make the gate reachable without waiting for council orders",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Make the gate reachable without waiting for council orders",
+        "emotion": "strain",
+        "theme": "care through work",
+        "tension": 5.75
+      },
+      "transition": {
+        "participants": [
+          "IVO"
+        ],
+        "effects": {
+          "character.ivo.progress_11": true
+        }
+      }
+    },
+    {
+      "id": "INTERLUDE_12",
+      "kind": "Scene",
+      "label": "Sera negotiates shelter allocation 12",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_12",
+          "node_id": "INTERLUDE_12"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 16,
+      "order": 17,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "sera"
+      ],
+      "purpose": "Keep rival districts cooperating during evacuation",
+      "duration": 1,
+      "attributes": {
+        "motivation": "Keep rival districts cooperating during evacuation",
+        "emotion": "restraint",
+        "theme": "stewardship",
+        "tension": 6.0
+      },
+      "transition": {
+        "participants": [
+          "SERA"
+        ],
+        "effects": {
+          "character.sera.progress_12": true
+        }
+      }
+    },
+    {
+      "id": "TESTIMONY",
+      "kind": "Hypothesis",
+      "label": "A dockworker claims the archive can survive underwater",
+      "status": "HYPOTHETICAL",
+      "evidence": [
+        {
+          "source": "fixture:TESTIMONY",
+          "node_id": "TESTIMONY"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 17,
+      "order": 18,
+      "threads": [
+        "mara"
+      ],
+      "attributes": {
+        "unreliable_testimony": true
+      },
+      "transition": {
+        "effects": {
+          "world.archive_waterproof": true
+        }
+      }
+    },
+    {
+      "id": "REVEAL",
+      "kind": "Revelation",
+      "label": "Mara compares the original gauge with the signed model",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:REVEAL",
+          "node_id": "REVEAL"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 18,
+      "order": 19,
+      "parent_id": "ACT_2",
+      "level": 2,
+      "threads": [
+        "mara",
+        "sera"
+      ],
+      "attributes": {
+        "motivation": "Resolve the mismatch before evacuation deadlines",
+        "audience_knows": [
+          "SECRET"
+        ],
+        "theme": "truth",
+        "emotion": "betrayal",
+        "tension": 8
+      },
+      "transition": {
+        "participants": [
+          "MARA"
+        ],
+        "requires": {
+          "world.model_falsified": true
+        },
+        "effects": {
+          "world.testimony_verified": true
+        },
+        "knowledge_updates": {
+          "MARA": [
+            "SECRET"
+          ],
+          "audience": [
+            "SECRET"
+          ]
+        }
+      }
+    },
+    {
+      "id": "PREPARE_GATE",
+      "kind": "Event",
+      "label": "Ivo links the public beacon to the manual gate",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:PREPARE_GATE",
+          "node_id": "PREPARE_GATE"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 19,
+      "order": 20,
+      "parent_id": "ACT_3",
+      "level": 2,
+      "threads": [
+        "ivo"
+      ],
+      "hard_constraints": [
+        {
+          "id": "gate_available",
+          "key": "world.manual_gate_allowed",
+          "expected": true,
+          "scope": "invariant",
+          "description": "Preparation requires the established manual mechanism"
+        }
+      ],
+      "attributes": {
+        "motivation": "Let a public witness trigger rescue even if the council refuses",
+        "emotion": "resolve",
+        "theme": "public duty",
+        "tension": 8
+      },
+      "transition": {
+        "participants": [
+          "IVO"
+        ],
+        "requires": {
+          "world.manual_gate_allowed": true,
+          "world.gate_risk_verified": true
+        },
+        "effects": {
+          "world.gate_ready": true
+        },
+        "resources": [
+          "resource.fuse.intact"
+        ]
+      }
+    },
+    {
+      "id": "SERA_CONCEDES",
+      "kind": "Decision",
+      "label": "Sera signs the correction and risks her office",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:SERA_CONCEDES",
+          "node_id": "SERA_CONCEDES"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 20,
+      "order": 21,
+      "parent_id": "ACT_3",
+      "level": 2,
+      "threads": [
+        "sera"
+      ],
+      "attributes": {
+        "emotion": "shame",
+        "theme": "stewardship",
+        "value_conflict": "institutional survival versus responsibility",
+        "tension": 9,
+        "agency_override": "external mechanism determines outcome"
+      },
+      "transition": {
+        "participants": [],
+        "requires_knowledge": {
+          "SERA": [
+            "SECRET"
+          ]
+        },
+        "effects": {
+          "world.correction_signed": true,
+          "character.sera.in_office": false
+        },
+        "irreversible": [
+          "character.sera.in_office"
+        ]
+      }
+    },
+    {
+      "id": "CLIMAX",
+      "kind": "Decision",
+      "label": "Mara broadcasts the ledger and fires the gate",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:CLIMAX",
+          "node_id": "CLIMAX"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 21,
+      "order": 22,
+      "parent_id": "ACT_3",
+      "level": 2,
+      "threads": [
+        "mara",
+        "ivo",
+        "sera"
+      ],
+      "attributes": {
+        "emotion": "fear and resolve",
+        "stakes": "The district floods if she waits; she loses anonymity if she acts",
+        "theme": "truth versus stewardship",
+        "value_conflict": "collective safety versus private safety",
+        "tension": 10,
+        "climax": true,
+        "repair_candidates": [
+          {
+            "id": "restore_witness_commitment",
+            "kind": "motivation",
+            "node_id": "CLIMAX",
+            "changes": {
+              "attributes.motivation": "Keep the promise recorded at PROMISE: witnesses need a public record despite the cost of exposure"
+            },
+            "evidence": [
+              "PROMISE",
+              "REVEAL"
+            ],
+            "cost": 1.0,
+            "provenance": {
+              "author": "AI-assisted synthetic fixture",
+              "method": "explicit_authored_candidate"
+            }
+          },
+          {
+            "id": "recall_witness_risk",
+            "kind": "motivation",
+            "node_id": "CLIMAX",
+            "changes": {
+              "attributes.motivation": "Publication prevents the named witnesses from being excluded from relief; Mara accepts loss of anonymity"
+            },
+            "evidence": [
+              "PROMISE",
+              "SECRET"
+            ],
+            "cost": 1.5,
+            "provenance": {
+              "author": "AI-assisted synthetic fixture",
+              "method": "explicit_authored_candidate"
+            }
+          }
+        ],
+        "agency_override": "external mechanism determines outcome"
+      },
+      "transition": {
+        "participants": [],
+        "requires": {
+          "world.manual_gate_allowed": true,
+          "world.gate_ready": true,
+          "world.testimony_verified": true,
+          "world.correction_signed": true,
+          "resource.fuse.intact": true
+        },
+        "requires_knowledge": {
+          "MARA": [
+            "SECRET",
+            "witnesses_need_public_record"
+          ]
+        },
+        "effects": {
+          "world.district_safe": true,
+          "world.archive_accessible": false,
+          "character.mara.anonymous": false,
+          "resource.fuse.intact": false
+        },
+        "knowledge_updates": {
+          "public": [
+            "SECRET"
+          ]
+        },
+        "irreversible": [
+          "character.mara.anonymous",
+          "resource.fuse.intact"
+        ],
+        "consequences": [
+          "Mara can no longer hide her identity",
+          "The original archive is sealed beneath the gate"
+        ]
+      }
+    },
+    {
+      "id": "PAYOFF",
+      "kind": "Payoff",
+      "label": "The fuse turns black as the dry causeway fills with witnesses",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:PAYOFF",
+          "node_id": "PAYOFF"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 22,
+      "order": 23,
+      "parent_id": "ACT_3",
+      "level": 2,
+      "threads": [
+        "ivo",
+        "mara"
+      ],
+      "attributes": {
+        "visual_intent": "The same white fuse from the opening shot is now black; witnesses read the broadcast ledger.",
+        "motifs": [
+          "BLACK_GLASS"
+        ],
+        "emotion": "relief and loss",
+        "theme": "a public record outlasts its archive",
+        "tension": 2
+      },
+      "transition": {
+        "requires": {
+          "world.district_safe": true,
+          "resource.fuse.intact": false
+        },
+        "participants": [
+          "IVO",
+          "MARA"
+        ]
+      }
+    },
+    {
+      "id": "AFTERMATH",
+      "kind": "Scene",
+      "label": "Sera joins the relief queue under her own name",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:AFTERMATH",
+          "node_id": "AFTERMATH"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "time": 23,
+      "order": 24,
+      "parent_id": "ACT_3",
+      "level": 2,
+      "threads": [
+        "sera"
+      ],
+      "attributes": {
+        "motivation": "Accept the same public accountability as the residents",
+        "emotion": "humility",
+        "theme": "stewardship without office",
+        "tension": 1
+      },
+      "transition": {
+        "requires": {
+          "character.sera.in_office": false
+        },
+        "participants": [
+          "SERA"
+        ]
+      }
+    },
+    {
+      "id": "ORNAMENT_00",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 0",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_00",
+          "node_id": "ORNAMENT_00"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_01",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 1",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_01",
+          "node_id": "ORNAMENT_01"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_02",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 2",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_02",
+          "node_id": "ORNAMENT_02"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_03",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 3",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_03",
+          "node_id": "ORNAMENT_03"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_04",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 4",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_04",
+          "node_id": "ORNAMENT_04"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_05",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 5",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_05",
+          "node_id": "ORNAMENT_05"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_06",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 6",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_06",
+          "node_id": "ORNAMENT_06"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_07",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 7",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_07",
+          "node_id": "ORNAMENT_07"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_08",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 8",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_08",
+          "node_id": "ORNAMENT_08"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_09",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 9",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_09",
+          "node_id": "ORNAMENT_09"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_10",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 10",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_10",
+          "node_id": "ORNAMENT_10"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_11",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 11",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_11",
+          "node_id": "ORNAMENT_11"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_12",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 12",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_12",
+          "node_id": "ORNAMENT_12"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_13",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 13",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_13",
+          "node_id": "ORNAMENT_13"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_14",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 14",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_14",
+          "node_id": "ORNAMENT_14"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_15",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 15",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_15",
+          "node_id": "ORNAMENT_15"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_16",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 16",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_16",
+          "node_id": "ORNAMENT_16"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_17",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 17",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_17",
+          "node_id": "ORNAMENT_17"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_18",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 18",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_18",
+          "node_id": "ORNAMENT_18"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_19",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 19",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_19",
+          "node_id": "ORNAMENT_19"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_20",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 20",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_20",
+          "node_id": "ORNAMENT_20"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_21",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 21",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_21",
+          "node_id": "ORNAMENT_21"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_22",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 22",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_22",
+          "node_id": "ORNAMENT_22"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    },
+    {
+      "id": "ORNAMENT_23",
+      "kind": "Rule",
+      "label": "Unused tidal registry convention 23",
+      "status": "CANON",
+      "evidence": [
+        {
+          "source": "fixture:ORNAMENT_23",
+          "node_id": "ORNAMENT_23"
+        }
+      ],
+      "confidence": 1.0,
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      },
+      "attributes": {
+        "world_level": "derived",
+        "ornamental": true,
+        "exposition": "A descriptive registry convention with no consequences in the represented events."
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_000",
+      "source": "INTERLUDE_01",
+      "target": "INTERLUDE_04",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_01",
+          "node_id": "INTERLUDE_01"
+        },
+        {
+          "source": "fixture:INTERLUDE_04",
+          "node_id": "INTERLUDE_04"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_001",
+      "source": "INTERLUDE_02",
+      "target": "INTERLUDE_05",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_02",
+          "node_id": "INTERLUDE_02"
+        },
+        {
+          "source": "fixture:INTERLUDE_05",
+          "node_id": "INTERLUDE_05"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_002",
+      "source": "INTERLUDE_03",
+      "target": "INTERLUDE_06",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_03",
+          "node_id": "INTERLUDE_03"
+        },
+        {
+          "source": "fixture:INTERLUDE_06",
+          "node_id": "INTERLUDE_06"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_003",
+      "source": "INTERLUDE_04",
+      "target": "INTERLUDE_07",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_04",
+          "node_id": "INTERLUDE_04"
+        },
+        {
+          "source": "fixture:INTERLUDE_07",
+          "node_id": "INTERLUDE_07"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_004",
+      "source": "INTERLUDE_05",
+      "target": "INTERLUDE_08",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_05",
+          "node_id": "INTERLUDE_05"
+        },
+        {
+          "source": "fixture:INTERLUDE_08",
+          "node_id": "INTERLUDE_08"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_005",
+      "source": "INTERLUDE_06",
+      "target": "INTERLUDE_09",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_06",
+          "node_id": "INTERLUDE_06"
+        },
+        {
+          "source": "fixture:INTERLUDE_09",
+          "node_id": "INTERLUDE_09"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_006",
+      "source": "INTERLUDE_07",
+      "target": "INTERLUDE_10",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_07",
+          "node_id": "INTERLUDE_07"
+        },
+        {
+          "source": "fixture:INTERLUDE_10",
+          "node_id": "INTERLUDE_10"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_007",
+      "source": "INTERLUDE_08",
+      "target": "INTERLUDE_11",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_08",
+          "node_id": "INTERLUDE_08"
+        },
+        {
+          "source": "fixture:INTERLUDE_11",
+          "node_id": "INTERLUDE_11"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_008",
+      "source": "INTERLUDE_09",
+      "target": "INTERLUDE_12",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_09",
+          "node_id": "INTERLUDE_09"
+        },
+        {
+          "source": "fixture:INTERLUDE_12",
+          "node_id": "INTERLUDE_12"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_009",
+      "source": "FUSE_RULE",
+      "target": "PREPARE_GATE",
+      "kind": "REQUIRES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:FUSE_RULE",
+          "node_id": "FUSE_RULE"
+        },
+        {
+          "source": "fixture:PREPARE_GATE",
+          "node_id": "PREPARE_GATE"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_010",
+      "source": "FUSE_RULE",
+      "target": "CLIMAX",
+      "kind": "CONSTRAINS",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:FUSE_RULE",
+          "node_id": "FUSE_RULE"
+        },
+        {
+          "source": "fixture:CLIMAX",
+          "node_id": "CLIMAX"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_011",
+      "source": "FUSE_IMAGE",
+      "target": "PAYOFF",
+      "kind": "FORESHADOWS",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:FUSE_IMAGE",
+          "node_id": "FUSE_IMAGE"
+        },
+        {
+          "source": "fixture:PAYOFF",
+          "node_id": "PAYOFF"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_012",
+      "source": "PAYOFF",
+      "target": "FUSE_IMAGE",
+      "kind": "PAYS_OFF",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:PAYOFF",
+          "node_id": "PAYOFF"
+        },
+        {
+          "source": "fixture:FUSE_IMAGE",
+          "node_id": "FUSE_IMAGE"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_013",
+      "source": "FUSE_IMAGE",
+      "target": "BLACK_GLASS",
+      "kind": "SYMBOLIZES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:FUSE_IMAGE",
+          "node_id": "FUSE_IMAGE"
+        },
+        {
+          "source": "fixture:BLACK_GLASS",
+          "node_id": "BLACK_GLASS"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_014",
+      "source": "PAYOFF",
+      "target": "BLACK_GLASS",
+      "kind": "SYMBOLIZES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:PAYOFF",
+          "node_id": "PAYOFF"
+        },
+        {
+          "source": "fixture:BLACK_GLASS",
+          "node_id": "BLACK_GLASS"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_016",
+      "source": "SECRET",
+      "target": "REVEAL",
+      "kind": "REQUIRES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:SECRET",
+          "node_id": "SECRET"
+        },
+        {
+          "source": "fixture:REVEAL",
+          "node_id": "REVEAL"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_017",
+      "source": "REVEAL",
+      "target": "CLIMAX",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:REVEAL",
+          "node_id": "REVEAL"
+        },
+        {
+          "source": "fixture:CLIMAX",
+          "node_id": "CLIMAX"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_018",
+      "source": "CRACKS",
+      "target": "PREPARE_GATE",
+      "kind": "CAUSES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:CRACKS",
+          "node_id": "CRACKS"
+        },
+        {
+          "source": "fixture:PREPARE_GATE",
+          "node_id": "PREPARE_GATE"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_019",
+      "source": "PREPARE_GATE",
+      "target": "CLIMAX",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:PREPARE_GATE",
+          "node_id": "PREPARE_GATE"
+        },
+        {
+          "source": "fixture:CLIMAX",
+          "node_id": "CLIMAX"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_020",
+      "source": "SERA_CONCEDES",
+      "target": "CLIMAX",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:SERA_CONCEDES",
+          "node_id": "SERA_CONCEDES"
+        },
+        {
+          "source": "fixture:CLIMAX",
+          "node_id": "CLIMAX"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_021",
+      "source": "CLIMAX",
+      "target": "PAYOFF",
+      "kind": "CAUSES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:CLIMAX",
+          "node_id": "CLIMAX"
+        },
+        {
+          "source": "fixture:PAYOFF",
+          "node_id": "PAYOFF"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_022",
+      "source": "SERA_CONCEDES",
+      "target": "AFTERMATH",
+      "kind": "CAUSES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:SERA_CONCEDES",
+          "node_id": "SERA_CONCEDES"
+        },
+        {
+          "source": "fixture:AFTERMATH",
+          "node_id": "AFTERMATH"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_023",
+      "source": "DELAY",
+      "target": "SERA_CONCEDES",
+      "kind": "TRANSFORMS",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:DELAY",
+          "node_id": "DELAY"
+        },
+        {
+          "source": "fixture:SERA_CONCEDES",
+          "node_id": "SERA_CONCEDES"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_024",
+      "source": "PROMISE",
+      "target": "DELAY",
+      "kind": "CONTRASTS",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:PROMISE",
+          "node_id": "PROMISE"
+        },
+        {
+          "source": "fixture:DELAY",
+          "node_id": "DELAY"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_025",
+      "source": "DELAY",
+      "target": "REVEAL",
+      "kind": "CONTRADICTS",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:DELAY",
+          "node_id": "DELAY"
+        },
+        {
+          "source": "fixture:REVEAL",
+          "node_id": "REVEAL"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_026",
+      "source": "THEME",
+      "target": "CLIMAX",
+      "kind": "SYMBOLIZES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:THEME",
+          "node_id": "THEME"
+        },
+        {
+          "source": "fixture:CLIMAX",
+          "node_id": "CLIMAX"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_027",
+      "source": "INTERLUDE_10",
+      "target": "REVEAL",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_10",
+          "node_id": "INTERLUDE_10"
+        },
+        {
+          "source": "fixture:REVEAL",
+          "node_id": "REVEAL"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    },
+    {
+      "id": "e_028",
+      "source": "INTERLUDE_11",
+      "target": "PREPARE_GATE",
+      "kind": "ENABLES",
+      "weight": 1.0,
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "source": "fixture:INTERLUDE_11",
+          "node_id": "INTERLUDE_11"
+        },
+        {
+          "source": "fixture:PREPARE_GATE",
+          "node_id": "PREPARE_GATE"
+        }
+      ],
+      "provenance": {
+        "author": "AI-assisted synthetic fixture",
+        "method": "explicit_authored_fixture"
+      }
+    }
+  ],
+  "initial_state": {
+    "values": {
+      "world.model_falsified": true,
+      "resource.fuse.intact": true,
+      "character.mara.anonymous": true,
+      "character.sera.in_office": true,
+      "world.archive_accessible": true,
+      "world.district_safe": false
+    },
+    "knowledge": {
+      "author": [
+        "SECRET"
+      ],
+      "SERA": [
+        "SECRET"
+      ],
+      "MARA": [],
+      "IVO": [],
+      "audience": []
+    },
+    "beliefs": {
+      "MARA": [
+        "archive_should_survive"
+      ]
+    }
+  },
+  "constraints": [],
+  "metadata": {
+    "synthetic": true,
+    "authorship": "Original deterministic fixture authored for NARRATIVE",
+    "variant": "complex_low_agency",
+    "limitations": "Annotations exercise structural mechanisms; they are not calibrated artistic judgments.",
+    "critical_long_range_dependency": [
+      "FUSE_IMAGE",
+      "PAYOFF"
+    ]
+  }
+}

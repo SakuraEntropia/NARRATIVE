@@ -1,0 +1,585 @@
+{
+  "$defs": {
+    "CanonStatus": {
+      "enum": [
+        "CANON",
+        "PROPOSED",
+        "HYPOTHETICAL",
+        "REJECTED",
+        "SUPERSEDED",
+        "UNKNOWN"
+      ],
+      "title": "CanonStatus",
+      "type": "string"
+    },
+    "Constraint": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "key": {
+          "title": "Key",
+          "type": "string"
+        },
+        "expected": {
+          "$ref": "#/$defs/JsonValue"
+        },
+        "scope": {
+          "default": "invariant",
+          "enum": [
+            "invariant",
+            "design"
+          ],
+          "title": "Scope",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "key",
+        "expected"
+      ],
+      "title": "Constraint",
+      "type": "object"
+    },
+    "Edge": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/EdgeType"
+        },
+        "weight": {
+          "default": 1,
+          "minimum": 0,
+          "title": "Weight",
+          "type": "number"
+        },
+        "confidence": {
+          "default": 1,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "status": {
+          "$ref": "#/$defs/CanonStatus",
+          "default": "CANON"
+        },
+        "timestamp": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Timestamp"
+        },
+        "version": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Version",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "target",
+        "kind"
+      ],
+      "title": "Edge",
+      "type": "object"
+    },
+    "EdgeType": {
+      "enum": [
+        "CAUSES",
+        "REQUIRES",
+        "ENABLES",
+        "CONTRADICTS",
+        "FORESHADOWS",
+        "PAYS_OFF",
+        "SYMBOLIZES",
+        "PARALLELS",
+        "CONTRASTS",
+        "REVEALS",
+        "MOTIVATES",
+        "TRANSFORMS",
+        "BELONGS_TO",
+        "PRECEDES",
+        "CONSTRAINS",
+        "KNOWS",
+        "BELIEVES",
+        "OBSERVES"
+      ],
+      "title": "EdgeType",
+      "type": "string"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "excerpt": {
+          "default": "",
+          "title": "Excerpt",
+          "type": "string"
+        },
+        "node_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Node Id"
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "Node": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/NodeType"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "level": {
+          "default": 0,
+          "maximum": 9,
+          "minimum": 0,
+          "title": "Level",
+          "type": "integer"
+        },
+        "parent_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Id"
+        },
+        "status": {
+          "$ref": "#/$defs/CanonStatus",
+          "default": "CANON"
+        },
+        "locked": {
+          "default": false,
+          "title": "Locked",
+          "type": "boolean"
+        },
+        "time": {
+          "default": 0,
+          "title": "Time",
+          "type": "number"
+        },
+        "order": {
+          "default": 0,
+          "title": "Order",
+          "type": "number"
+        },
+        "revelation_order": {
+          "default": 0,
+          "title": "Revelation Order",
+          "type": "number"
+        },
+        "threads": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Threads",
+          "type": "array"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Attributes",
+          "type": "object"
+        },
+        "transition": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Transition"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "hard_constraints": {
+          "items": {
+            "$ref": "#/$defs/Constraint"
+          },
+          "title": "Hard Constraints",
+          "type": "array"
+        },
+        "soft_constraints": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Soft Constraints",
+          "type": "array"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "confidence": {
+          "default": 1,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "version": {
+          "default": 1,
+          "minimum": 1,
+          "title": "Version",
+          "type": "integer"
+        },
+        "purpose": {
+          "default": "",
+          "title": "Purpose",
+          "type": "string"
+        },
+        "duration": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Duration",
+          "type": "number"
+        },
+        "completion": {
+          "default": "draft",
+          "title": "Completion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "label"
+      ],
+      "title": "Node",
+      "type": "object"
+    },
+    "NodeType": {
+      "enum": [
+        "Story",
+        "Theme",
+        "Act",
+        "Arc",
+        "Sequence",
+        "Beat",
+        "Scene",
+        "Event",
+        "Character",
+        "CharacterState",
+        "WorldState",
+        "Rule",
+        "Fact",
+        "Hypothesis",
+        "Location",
+        "Faction",
+        "Object",
+        "Motif",
+        "Foreshadowing",
+        "Payoff",
+        "Conflict",
+        "Decision",
+        "Revelation",
+        "KnowledgeState"
+      ],
+      "title": "NodeType",
+      "type": "string"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "default": "human",
+          "title": "Author",
+          "type": "string"
+        },
+        "method": {
+          "default": "authored",
+          "title": "Method",
+          "type": "string"
+        },
+        "model": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model"
+        },
+        "operation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Operation"
+        }
+      },
+      "title": "Provenance",
+      "type": "object"
+    },
+    "State": {
+      "additionalProperties": false,
+      "properties": {
+        "values": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Values",
+          "type": "object"
+        },
+        "knowledge": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Knowledge",
+          "type": "object"
+        },
+        "beliefs": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Beliefs",
+          "type": "object"
+        },
+        "irreversible": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Irreversible",
+          "type": "array"
+        }
+      },
+      "title": "State",
+      "type": "object"
+    },
+    "Transition": {
+      "additionalProperties": false,
+      "properties": {
+        "requires": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Requires",
+          "type": "object"
+        },
+        "effects": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Effects",
+          "type": "object"
+        },
+        "requires_knowledge": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Requires Knowledge",
+          "type": "object"
+        },
+        "knowledge_updates": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Knowledge Updates",
+          "type": "object"
+        },
+        "belief_updates": {
+          "additionalProperties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "title": "Belief Updates",
+          "type": "object"
+        },
+        "irreversible": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Irreversible",
+          "type": "array"
+        },
+        "exceptions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Exceptions",
+          "type": "array"
+        },
+        "participants": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Participants",
+          "type": "array"
+        },
+        "resources": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Resources",
+          "type": "array"
+        },
+        "consequences": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Consequences",
+          "type": "array"
+        }
+      },
+      "title": "Transition",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "$ref": "#/$defs/Node"
+      },
+      "title": "Nodes",
+      "type": "array"
+    },
+    "edges": {
+      "items": {
+        "$ref": "#/$defs/Edge"
+      },
+      "title": "Edges",
+      "type": "array"
+    },
+    "initial_state": {
+      "$ref": "#/$defs/State"
+    },
+    "constraints": {
+      "items": {
+        "$ref": "#/$defs/Constraint"
+      },
+      "title": "Constraints",
+      "type": "array"
+    },
+    "medium": {
+      "default": "screen",
+      "enum": [
+        "screen",
+        "text",
+        "game"
+      ],
+      "title": "Medium",
+      "type": "string"
+    },
+    "version": {
+      "default": "working",
+      "title": "Version",
+      "type": "string"
+    },
+    "metadata": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Metadata",
+      "type": "object"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "title": "Project",
+  "type": "object"
+}
