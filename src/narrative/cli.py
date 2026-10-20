@@ -32,8 +32,13 @@ def emit(value):
     print(json.dumps(plain(value), ensure_ascii=False, indent=2, allow_nan=False))
 
 
+class JsonArgumentParser(argparse.ArgumentParser):
+    def error(self, message):
+        raise ValueError(message)
+
+
 def parser():
-    root = argparse.ArgumentParser(prog="narrative", description=__doc__)
+    root = JsonArgumentParser(prog="narrative", description=__doc__)
     root.add_argument("--db", default="narrative.db", help="Local project SQLite path (use before command)")
     root.add_argument("--json", action="store_true", help="All commands already emit JSON")
     commands = root.add_subparsers(dest="command", required=True)
@@ -68,9 +73,45 @@ def parser():
     duel.add_argument("--target", default="CLIMAX")
     command("audit", "Run a full graph/state/evaluation audit")
     command("history", "List immutable versions")
-    diff = command("diff", "Compare two immutable snapshot IDs")
-    diff.add_argument("version_a")
-    diff.add_argument("version_b")
+    command("status", "Inspect HEAD, branch and uncommitted story changes")
+    save = command("save", "Validate and save a whole-story JSON working copy")
+    save.add_argument("path", type=Path)
+    save.add_argument("--authorize-locked", action="append", default=[])
+    commit = command("commit", "Commit the saved working copy")
+    commit.add_argument("-m", "--message", required=True)
+    commit.add_argument("--author", default="human")
+    commit.add_argument("--authorize-locked", action="append", default=[])
+    branch = command("branch", "List branches or create one without switching")
+    branch.add_argument("name", nargs="?")
+    branch.add_argument("--start")
+    tag = command("tag", "List tags or create an immutable named revision")
+    tag.add_argument("name", nargs="?")
+    tag.add_argument("--at")
+    checkout = command("checkout", "Load a revision; branches attach HEAD, other revisions detach")
+    checkout.add_argument("revision")
+    checkout.add_argument("--discard-changes", action="store_true")
+    switch = command("switch", "Switch to a named story branch")
+    switch.add_argument("branch")
+    log = command("log", "Inspect commit ancestry and merge parents")
+    log.add_argument("revision", nargs="?", default="HEAD")
+    log.add_argument("--all", action="store_true", dest="all_branches")
+    log.add_argument("--limit", type=int, default=100)
+    reflog = command("reflog", "Inspect HEAD/ref operations and recover earlier commit IDs")
+    reflog.add_argument("--limit", type=int, default=100)
+    show = command("show", "Inspect immutable commit metadata and story document")
+    show.add_argument("revision", nargs="?", default="HEAD")
+    merge = command("merge", "Merge a revision, resolve reported conflicts, or abort")
+    merge.add_argument("revision", nargs="?")
+    merge.add_argument("-m", "--message")
+    merge.add_argument("--authorize-locked", action="append", default=[])
+    merge.add_argument("--resolve", action="append", default=[], metavar="PATH=CHOICE")
+    merge.add_argument("--abort", action="store_true")
+    revert = command("revert", "Apply an inverse commit delta while preserving later edits")
+    revert.add_argument("revision")
+    revert.add_argument("-m", "--message")
+    revert.add_argument("--authorize-locked", action="append", default=[])
+    diff = command("diff", "Compare HEAD to working, revision to working, or two revisions")
+    diff.add_argument("revisions", nargs="*", metavar="REV")
     export = command("export", "Export computed inspection data")
     export.add_argument("--format", choices=["html", "json"], default="html")
     export.add_argument("--output", type=Path, default=Path("story.html"))
@@ -107,8 +148,73 @@ def execute(args):
             return {"version": version, "nodes": len(graph.nodes), "edges": len(graph.edges)}, 0
         if action == "history":
             return {"history": store.history()}, 0
+        if action == "status":
+            return store.status(), 0
+        if action == "save":
+            graph = StoryGraph(Project.model_validate_json(args.path.read_text(encoding="utf-8")))
+            return store.save_working(graph, authorized_locked=args.authorize_locked), 0
+        if action == "commit":
+            version = store.commit_working(args.message, author=args.author, authorized_locked=args.authorize_locked)
+            return {"version": version, "committed": True, **store.status()}, 0
+        if action == "branch":
+            if args.name is None:
+                if args.start is not None:
+                    raise ValueError("branch --start requires a branch name")
+                return {"branches": store.branches()}, 0
+            return store.create_branch(args.name, start=args.start), 0
+        if action == "tag":
+            if args.name is None:
+                if args.at is not None:
+                    raise ValueError("tag --at requires a tag name")
+                return {"tags": store.tags()}, 0
+            return store.create_tag(args.name, target=args.at), 0
+        if action == "checkout":
+            return store.checkout(args.revision, discard_changes=args.discard_changes), 0
+        if action == "switch":
+            names = {item["name"] for item in store.branches()}
+            if args.branch not in names:
+                raise ValueError(f"Unknown branch: {args.branch}; switch requires an existing branch")
+            result = store.checkout(f"refs/heads/{args.branch}")
+            if result.get("detached") or result.get("branch") != args.branch:
+                raise ValueError("Switch did not attach the requested branch")
+            return result, 0
+        if action == "log":
+            return {"log": store.log(args.revision, all_branches=args.all_branches, limit=args.limit)}, 0
+        if action == "reflog":
+            return {"reflog": store.reflog(limit=args.limit)}, 0
+        if action == "show":
+            return store.show(args.revision), 0
+        if action == "merge":
+            selected = int(args.revision is not None) + int(bool(args.resolve)) + int(args.abort)
+            if selected != 1:
+                raise ValueError("Choose exactly one merge revision, --resolve PATH=ours|theirs|base, or --abort")
+            if args.revision is not None:
+                result = store.merge(args.revision, message=args.message, authorized_locked=args.authorize_locked)
+            else:
+                if args.message or args.authorize_locked:
+                    raise ValueError("Use -m and --authorize-locked with merge REV or the final commit")
+                if args.abort:
+                    result = store.abort_merge()
+                else:
+                    resolutions = {}
+                    for specification in args.resolve:
+                        if "=" not in specification:
+                            raise ValueError("Conflict resolution must be PATH=ours|theirs|base")
+                        path, choice = specification.rsplit("=", 1)
+                        if not path.startswith("/") or choice not in {"ours", "theirs", "base"}:
+                            raise ValueError("Conflict resolution requires a JSON pointer path and ours, theirs, or base")
+                        if path in resolutions and resolutions[path] != choice:
+                            raise ValueError(f"Conflicting choices for path: {path}")
+                        resolutions[path] = choice
+                    result = store.resolve_conflicts(resolutions)
+            return result, 2 if result.get("status") in {"conflicts", "invalid"} else 0
+        if action == "revert":
+            result = store.revert(args.revision, message=args.message, authorized_locked=args.authorize_locked)
+            return result, 2 if result.get("status") in {"conflicts", "invalid"} else 0
         if action == "diff":
-            return store.diff(args.version_a, args.version_b), 0
+            if len(args.revisions) > 2:
+                raise ValueError("diff accepts zero, one, or two revisions")
+            return store.diff(*args.revisions), 0
         graph = store.load()
         if action == "compile":
             result = simulate(graph)
@@ -117,7 +223,7 @@ def execute(args):
             from .refinement import refine
             result = refine(graph, args.node, depth=args.depth, max_nodes=args.max_nodes)
             if result.children:
-                version = store.commit(result.graph, parent=graph.document.version, message=f"Proposed refinement of {args.node}")
+                version = store.commit(result.graph, parent=store.status()["head"], message=f"Proposed refinement of {args.node}")
             else:
                 version = graph.document.version
             payload = {key: plain(getattr(result, key)) for key in ("children", "checkpoints", "feedback", "telemetry", "stopped_reason")}
@@ -148,7 +254,7 @@ def execute(args):
                 report = result["report"]
                 if not report.get("valid", False):
                     return {"report": report, "committed": False}, 2
-                version = store.commit(result["branch"], parent=graph.document.version,
+                version = store.commit(result["branch"], parent=store.status()["head"],
                                        message=f"Approved pivot {args.candidate} for {args.target}",
                                        authorized_locked=args.authorize_locked)
                 return {"version": version, "report": report, "committed": True}, 0
@@ -180,8 +286,8 @@ def execute(args):
 
 
 def main(argv=None):
-    args = parser().parse_args(argv)
     try:
+        args = parser().parse_args(argv)
         value, status = execute(args)
         emit(value)
         return status

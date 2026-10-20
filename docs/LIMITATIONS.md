@@ -2,7 +2,7 @@
 
 ## Implemented and tested deterministically
 
-Typed nodes/edges, hierarchy validation, provenance/confidence, canonical vs proposed status, immutable SQLite versions/diff, locked canon authorization, atomic equal-value state preconditions/effects, character and audience knowledge separation, irreversibility with explicit rule exceptions, independent chronology/presentation/revelation fields, inherited design constraints and state invariants.
+Typed nodes/edges, hierarchy validation, provenance/confidence, canonical vs proposed status, immutable SQLite content blobs and commit ancestry, persistent working copies, branches/tags, attached/detached HEAD, revision lookup, structured diff/merge/revert, locked canon authorization, atomic equal-value state preconditions/effects, character and audience knowledge separation, irreversibility with explicit rule exceptions, independent chronology/presentation/revelation fields, inherited design constraints and state invariants.
 
 Sparse attention and ten diagnostics, longitudinal thread annotations and typed cross-thread counterpoint, information ledgers, motif recurrence, eleven safeguard reports, bounded evidence retrieval, dependency-aware caching, hierarchical budgets/telemetry, structured provider output with bounded retries, isolated candidate mutation/forward simulation, evidence-based critic checklists, Pareto tradeoffs, CLI and read-only HTML inspection are executable offline.
 
@@ -22,11 +22,30 @@ Memory/cache experiments demonstrate explicit invalidation and repeat-query reus
 
 Externally calibrated quality estimates, corpus-based novelty, blinded human preference studies, independently sampled model critics, long-form generation experiments, empirical artistic improvement, semantic source extraction, multi-timeline time travel and a full logical treatment of unreliable narration remain future work. Contradictory testimony can be stored separately without corrupting actual state; multiple causally interacting time-travel timelines need a richer model.
 
-State semantics use flat namespaced values and exact equality. Resource consumption, injuries, and object destruction need explicit state effects and irreversible flags. The engine cannot infer omitted rules from prose. Same-time events use ID order as a deterministic tie breaker; encode causal timing explicitly. In-memory defensive graph copies and full JSON snapshots suit small local projects, not yet production-scale universes. Schema migration, concurrency, encrypted multi-user storage and writable GUI authoring are not provided.
+State semantics use flat namespaced values and exact equality. Resource consumption, injuries, and object destruction need explicit state effects and irreversible flags. The engine cannot infer omitted rules from prose. Same-time events use ID order as a deterministic tie breaker; encode causal timing explicitly. In-memory defensive graph copies and full JSON snapshots suit small local projects, not yet production-scale universes.
+
+Story version control is local and operates on whole structured projects. It does
+not stage subsets, track arbitrary files, synchronize network remotes, or provide
+destructive branch reset/deletion. Ordered lists merge atomically; this release
+does not semantically merge prose or reconcile incompatible narrative intent.
+Unrelated histories and multiple maximal merge bases are rejected, and reverting
+a root commit has no supported inverse while a merge commit requires an
+unsupported explicit mainline choice. Conflict choices
+must use the exact reported JSON pointer paths. See
+[VERSION_CONTROL.md](VERSION_CONTROL.md).
+
+The additive migration supports the existing snapshot/history schema; it is not
+a general migration framework for arbitrary future data models. Optimistic
+SQLite transactions reject stale local writers, but this is not collaborative
+multi-user editing, access control, encrypted storage or writable GUI authoring.
+Append-only triggers protect application behavior, not owner tampering with a
+database file. Merge and revert reject new simulated state failures relative to
+HEAD; an existing failure can remain visible. Ordinary commits may preserve a
+deliberately defective story for research and later repair.
 
 ## Next engineering priorities
 
-1. Add explicit provider timeouts, usage validation and schema migration before real user projects.
+1. Add explicit provider timeouts, usage validation and broader schema migration before real user projects.
 2. Persist version-aware analytical cache entries and state checkpoints, then benchmark larger independent fixtures.
 3. Add source-linked semantic extraction and typed graph-edit proposals with precise approval diffs.
 4. Run independent model and human calibration studies; publish disagreements and artistic regressions before claiming quality gains.

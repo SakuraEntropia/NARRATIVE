@@ -6,7 +6,8 @@ This is an executable research foundation. Structural measurements, heuristic pr
 
 ## Features
 
-- Typed multigraph, atomic world/character/knowledge transitions and immutable SQLite snapshots.
+- Typed multigraph, atomic world/character/knowledge transitions and immutable SQLite story commits.
+- Local story branches, tags, detached HEAD, working copies, structured merges and history-preserving reverts.
 - Bounded recursive proposed refinement with inherited constraints.
 - Sparse typed Story Attention, three-thread polyphony and evidence-bearing B1–B9 reports.
 - Backward dependency search, isolated counterfactual pivots and adversarial comparison.
@@ -39,13 +40,44 @@ narrative --db demo.db export --format html --output story.html
 narrative experiments --output experiments.json
 ```
 
-Every command emits JSON. Use a new database per project. Import another original fixture with `narrative --db defective.db ingest examples/weak_motivation.json`. `narrative diff VERSION_A VERSION_B` compares immutable full snapshot IDs from `history`.
+Every command emits JSON. Use a new database per project. Import another original fixture with `narrative --db defective.db ingest examples/weak_motivation.json`. `narrative diff` compares HEAD with the saved working story; `diff REV` compares a revision with working; `diff REV_A REV_B` compares two immutable commits.
 
 Refinement saves PROPOSED children; it never promotes them. Pivot reports are previews by default. Explicitly approve a selected proposal with `pivot --target CLIMAX --candidate 0 --approve`; locked node changes additionally need `--authorize-locked NODE_ID`. Counterfactual preview simulation is labeled hypothetical. Inspect the report before approval.
 
+## Story version control
+
+Version control lives inside the project's SQLite database. Named story branches
+support alternate plot decisions while preserving their common ancestry.
+
+```bash
+narrative --db demo.db status
+narrative --db demo.db branch alternate-ending
+narrative --db demo.db switch alternate-ending
+narrative --db demo.db export --format json --output alternate.json
+# Edit alternate.json, then save and commit the complete story.
+narrative --db demo.db save alternate.json
+narrative --db demo.db diff
+narrative --db demo.db commit -m "Revise the final choice"
+narrative --db demo.db tag ending-review
+narrative --db demo.db switch main
+narrative --db demo.db merge alternate-ending -m "Integrate the alternate ending"
+narrative --db demo.db log --all
+narrative --db demo.db reflog --limit 10
+```
+
+Branch creation does not switch branches. Checkout of a tag or commit detaches
+HEAD; `switch` accepts an existing branch. Dirty checkout is refused unless
+`checkout REV --discard-changes` explicitly discards working edits. A conflicting
+merge returns its JSON pointer paths and leaves history unchanged. Choose each
+path with `merge --resolve '/nodes/CLIMAX/label=ours'`, then `commit -m "Resolve
+ending merge"`; use `merge --abort` to restore the pre-operation story. A revert
+applies an inverse change as a new commit and retains unrelated later edits.
+See the [version-control guide](docs/VERSION_CONTROL.md) for complete commands,
+approval rules, revision syntax and limits.
+
 ## Architecture
 
-One Pydantic Project is the source of truth. NetworkX, analysis, timeline and HTML are projections; SQLite stores immutable content-addressed snapshots. See [architecture](docs/ARCHITECTURE.md), [data/API contract](docs/API.md), [specification](docs/SPEC.md) and [roadmap](docs/ROADMAP.md).
+One Pydantic Project is the source of truth. NetworkX, analysis, timeline and HTML are projections; SQLite stores immutable content-addressed story blobs, a commit DAG and the persistent working copy. See [architecture](docs/ARCHITECTURE.md), [data/API contract](docs/API.md), [specification](docs/SPEC.md) and [roadmap](docs/ROADMAP.md).
 
 The original fixture, *The Last Tide Ledger*, has three incompatible civic duties, an important secret, a distant fuse setup/payoff, and an irreversible climactic choice. Alternative fixtures weaken motivation and add unused worldbuilding. These are authored structural test cases, not a literary reference corpus.
 

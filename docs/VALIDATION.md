@@ -26,3 +26,14 @@ Deterministic core invariants, proposed/canon separation, ancestral constraints,
 See [implementation status and limitations](LIMITATIONS.md) for partial/unimplemented mechanisms, then [roadmap](ROADMAP.md) for priorities. Model-assisted creative generation, independent model critics, calibrated emotion/novelty judgments and multi-timeline time travel remain research work. The local HTML page is a read-only inspector.
 
 Published project: [SakuraEntropia/NARRATIVE](https://github.com/SakuraEntropia/NARRATIVE), public `main` branch. CI runs Python 3.12, 3.13 and 3.14; the local execution above is the recorded Python 3.14 result.
+
+## Story version control — 2026-10-20 / v0.2.0
+
+- Installed package and Python module both report **0.2.0**. The existing Python dependencies are unchanged.
+- Full deterministic suite: **141 passed**. See [version-control test output](../reports/version-control-tests.txt); [lint output](../reports/version-control-lint.txt) reports all checks passed.
+- Preserved all original graph, simulation, refinement, analysis, optimization and CLI tests. A–G was rerun separately: **9/9 checks true**.
+- Added pure three-way merge tests, real v1 database migration including repeated content, immutable commit identity, branch/tag/HEAD isolation, detached rescue, pending conflict persistence/abort, inverse revert, full graph/state validation, lock/promotion authorization and stale-write regressions.
+- Independent review found and fixed movable refs shadowing immutable commit IDs, stale blob aliases overwriting current content, and refreshed connection state incorrectly legitimizing stale draft sources. Status observation also establishes the optimistic revision used by subsequent writes.
+- Actual installed console demonstration: **37 commands**, **8 commits**, **8/8 workflow checks**, and **22 valid canonical transitions**. It exercised two-parent merging, conflict staging and explicit commit, history-preserving revert, tags, detached checkout, branch restoration and reflog. Full results and command arguments: [version-control-demo.json](../reports/version-control-demo.json). The database was temporary; no private user story was used.
+- Migration leaves the original snapshots/history rows and triggers intact. Dirty checkout, unauthorized canon changes, unresolved commits and invalid merge/revert results are rejected without moving HEAD or silently dropping the saved work.
+- Application API/model calls for version-control operations: **0**. No remote story synchronization, subset staging, semantic prose merge, multiple-base recursive merge, root/merge-commit revert or `HEAD@{N}` selectors are implemented. See [version-control guide](VERSION_CONTROL.md) for the supported recovery paths and exact limits.

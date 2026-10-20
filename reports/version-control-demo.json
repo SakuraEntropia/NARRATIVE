@@ -1,0 +1,888 @@
+{
+  "version": "0.2.0",
+  "date": "2026-10-20",
+  "dataset": "The Last Tide Ledger",
+  "method": "Actual installed narrative CLI subprocesses against a temporary SQLite database",
+  "checks": {
+    "two_parent_merge": true,
+    "conflict_head_preserved": true,
+    "resolution_requires_commit": true,
+    "revert_preserves_unrelated_later_changes": true,
+    "initial_commit_immutable": true,
+    "prefix_checkout_detaches": true,
+    "switch_restores_branch": true,
+    "final_work_clean": true
+  },
+  "automatic_merge": {
+    "status": "merged",
+    "committed": true,
+    "version": "71354cb95d3611233281538847616380f12499c28b9845006603e242b7b2a288",
+    "parents": [
+      "c83d6352cfcae5ff5ea63270df6687115b27073f9d97e85e7537c1fa326dc3ba",
+      "6543964e2d5f36044a76f4333db8edfa3840653cb5f4efcda2bf81503d3be44a"
+    ]
+  },
+  "conflict_paths": [
+    "/nodes/CLIMAX/label"
+  ],
+  "resolved_commit": "825df261a67fa754666e547d53ae890beb8a95436793b98fbd6ef9b098518f6f",
+  "revert": {
+    "status": "reverted",
+    "committed": true,
+    "version": "b81942cdf24bd29b0ca19ddd1c99c445792f6ca0865369809462e667433c3daf",
+    "parents": [
+      "825df261a67fa754666e547d53ae890beb8a95436793b98fbd6ef9b098518f6f"
+    ]
+  },
+  "diff_from_opening": {
+    "nodes": {
+      "added": [],
+      "removed": [],
+      "changed": [
+        "CLIMAX",
+        "PROMISE"
+      ],
+      "details": {
+        "CLIMAX": {
+          "before": {
+            "id": "CLIMAX",
+            "kind": "Decision",
+            "label": "Mara broadcasts the ledger and fires the gate",
+            "level": 2,
+            "parent_id": "ACT_3",
+            "status": "CANON",
+            "locked": false,
+            "time": 21.0,
+            "order": 22.0,
+            "revelation_order": 0.0,
+            "threads": [
+              "mara",
+              "ivo",
+              "sera"
+            ],
+            "attributes": {
+              "climax": true,
+              "emotion": "fear and resolve",
+              "motivation": "Keep her promise to the witnesses even though publication exposes her identity",
+              "repair_candidates": [
+                {
+                  "changes": {
+                    "attributes.motivation": "Keep the promise recorded at PROMISE: witnesses need a public record despite the cost of exposure"
+                  },
+                  "cost": 1.0,
+                  "evidence": [
+                    "PROMISE",
+                    "REVEAL"
+                  ],
+                  "id": "restore_witness_commitment",
+                  "kind": "motivation",
+                  "node_id": "CLIMAX",
+                  "provenance": {
+                    "author": "AI-assisted synthetic fixture",
+                    "method": "explicit_authored_candidate"
+                  }
+                },
+                {
+                  "changes": {
+                    "attributes.motivation": "Publication prevents the named witnesses from being excluded from relief; Mara accepts loss of anonymity"
+                  },
+                  "cost": 1.5,
+                  "evidence": [
+                    "PROMISE",
+                    "SECRET"
+                  ],
+                  "id": "recall_witness_risk",
+                  "kind": "motivation",
+                  "node_id": "CLIMAX",
+                  "provenance": {
+                    "author": "AI-assisted synthetic fixture",
+                    "method": "explicit_authored_candidate"
+                  }
+                }
+              ],
+              "stakes": "The district floods if she waits; she loses anonymity if she acts",
+              "tension": 10,
+              "theme": "truth versus stewardship",
+              "value_conflict": "collective safety versus private safety"
+            },
+            "transition": {
+              "requires": {
+                "resource.fuse.intact": true,
+                "world.correction_signed": true,
+                "world.gate_ready": true,
+                "world.manual_gate_allowed": true,
+                "world.testimony_verified": true
+              },
+              "effects": {
+                "character.mara.anonymous": false,
+                "resource.fuse.intact": false,
+                "world.archive_accessible": false,
+                "world.district_safe": true
+              },
+              "requires_knowledge": {
+                "MARA": [
+                  "SECRET",
+                  "witnesses_need_public_record"
+                ]
+              },
+              "knowledge_updates": {
+                "public": [
+                  "SECRET"
+                ]
+              },
+              "belief_updates": {},
+              "irreversible": [
+                "character.mara.anonymous",
+                "resource.fuse.intact"
+              ],
+              "exceptions": [],
+              "participants": [
+                "MARA"
+              ],
+              "resources": [],
+              "consequences": [
+                "Mara can no longer hide her identity",
+                "The original archive is sealed beneath the gate"
+              ]
+            },
+            "hard_constraints": [],
+            "soft_constraints": [],
+            "evidence": [
+              {
+                "source": "fixture:CLIMAX",
+                "excerpt": "",
+                "node_id": "CLIMAX"
+              }
+            ],
+            "provenance": {
+              "author": "AI-assisted synthetic fixture",
+              "method": "explicit_authored_fixture",
+              "model": null,
+              "operation": null
+            },
+            "confidence": 1.0,
+            "version": 1,
+            "purpose": "",
+            "duration": 0.0,
+            "completion": "draft"
+          },
+          "after": {
+            "id": "CLIMAX",
+            "kind": "Decision",
+            "label": "Expose the ledger and spend the only fuse",
+            "level": 2,
+            "parent_id": "ACT_3",
+            "status": "CANON",
+            "locked": false,
+            "time": 21.0,
+            "order": 22.0,
+            "revelation_order": 0.0,
+            "threads": [
+              "mara",
+              "ivo",
+              "sera"
+            ],
+            "attributes": {
+              "climax": true,
+              "emotion": "fear and resolve",
+              "motivation": "Keep her promise to the witnesses even though publication exposes her identity",
+              "repair_candidates": [
+                {
+                  "changes": {
+                    "attributes.motivation": "Keep the promise recorded at PROMISE: witnesses need a public record despite the cost of exposure"
+                  },
+                  "cost": 1.0,
+                  "evidence": [
+                    "PROMISE",
+                    "REVEAL"
+                  ],
+                  "id": "restore_witness_commitment",
+                  "kind": "motivation",
+                  "node_id": "CLIMAX",
+                  "provenance": {
+                    "author": "AI-assisted synthetic fixture",
+                    "method": "explicit_authored_candidate"
+                  }
+                },
+                {
+                  "changes": {
+                    "attributes.motivation": "Publication prevents the named witnesses from being excluded from relief; Mara accepts loss of anonymity"
+                  },
+                  "cost": 1.5,
+                  "evidence": [
+                    "PROMISE",
+                    "SECRET"
+                  ],
+                  "id": "recall_witness_risk",
+                  "kind": "motivation",
+                  "node_id": "CLIMAX",
+                  "provenance": {
+                    "author": "AI-assisted synthetic fixture",
+                    "method": "explicit_authored_candidate"
+                  }
+                }
+              ],
+              "stakes": "The district floods if she waits; she loses anonymity if she acts",
+              "tension": 10,
+              "theme": "truth versus stewardship",
+              "value_conflict": "collective safety versus private safety"
+            },
+            "transition": {
+              "requires": {
+                "resource.fuse.intact": true,
+                "world.correction_signed": true,
+                "world.gate_ready": true,
+                "world.manual_gate_allowed": true,
+                "world.testimony_verified": true
+              },
+              "effects": {
+                "character.mara.anonymous": false,
+                "resource.fuse.intact": false,
+                "world.archive_accessible": false,
+                "world.district_safe": true
+              },
+              "requires_knowledge": {
+                "MARA": [
+                  "SECRET",
+                  "witnesses_need_public_record"
+                ]
+              },
+              "knowledge_updates": {
+                "public": [
+                  "SECRET"
+                ]
+              },
+              "belief_updates": {},
+              "irreversible": [
+                "character.mara.anonymous",
+                "resource.fuse.intact"
+              ],
+              "exceptions": [],
+              "participants": [
+                "MARA"
+              ],
+              "resources": [],
+              "consequences": [
+                "Mara can no longer hide her identity",
+                "The original archive is sealed beneath the gate"
+              ]
+            },
+            "hard_constraints": [],
+            "soft_constraints": [],
+            "evidence": [
+              {
+                "source": "fixture:CLIMAX",
+                "excerpt": "",
+                "node_id": "CLIMAX"
+              }
+            ],
+            "provenance": {
+              "author": "AI-assisted synthetic fixture",
+              "method": "explicit_authored_fixture",
+              "model": null,
+              "operation": null
+            },
+            "confidence": 1.0,
+            "version": 3,
+            "purpose": "Pay the public and personal cost of the witness promise",
+            "duration": 0.0,
+            "completion": "draft"
+          }
+        },
+        "PROMISE": {
+          "before": {
+            "id": "PROMISE",
+            "kind": "Scene",
+            "label": "Mara promises displaced witnesses a public record",
+            "level": 2,
+            "parent_id": "ACT_1",
+            "status": "CANON",
+            "locked": false,
+            "time": 2.0,
+            "order": 3.0,
+            "revelation_order": 0.0,
+            "threads": [
+              "mara"
+            ],
+            "attributes": {
+              "emotion": "attachment",
+              "motivation": "The witnesses' protection depends on public acknowledgement",
+              "stakes": "Witnesses will disappear from relief rolls without a record",
+              "tension": 2,
+              "theme": "truth"
+            },
+            "transition": {
+              "requires": {},
+              "effects": {
+                "character.mara.committed_to_witnesses": true
+              },
+              "requires_knowledge": {},
+              "knowledge_updates": {
+                "MARA": [
+                  "witnesses_need_public_record"
+                ]
+              },
+              "belief_updates": {},
+              "irreversible": [],
+              "exceptions": [],
+              "participants": [
+                "MARA"
+              ],
+              "resources": [],
+              "consequences": []
+            },
+            "hard_constraints": [],
+            "soft_constraints": [],
+            "evidence": [
+              {
+                "source": "fixture:PROMISE",
+                "excerpt": "",
+                "node_id": "PROMISE"
+              }
+            ],
+            "provenance": {
+              "author": "AI-assisted synthetic fixture",
+              "method": "explicit_authored_fixture",
+              "model": null,
+              "operation": null
+            },
+            "confidence": 1.0,
+            "version": 1,
+            "purpose": "",
+            "duration": 0.0,
+            "completion": "draft"
+          },
+          "after": {
+            "id": "PROMISE",
+            "kind": "Scene",
+            "label": "Mara promises displaced witnesses a public record",
+            "level": 2,
+            "parent_id": "ACT_1",
+            "status": "CANON",
+            "locked": false,
+            "time": 2.0,
+            "order": 3.0,
+            "revelation_order": 0.0,
+            "threads": [
+              "mara"
+            ],
+            "attributes": {
+              "emotion": "attachment",
+              "motivation": "The witnesses' protection depends on public acknowledgement",
+              "stakes": "Witnesses will disappear from relief rolls without a record",
+              "tension": 2,
+              "theme": "truth"
+            },
+            "transition": {
+              "requires": {},
+              "effects": {
+                "character.mara.committed_to_witnesses": true
+              },
+              "requires_knowledge": {},
+              "knowledge_updates": {
+                "MARA": [
+                  "witnesses_need_public_record"
+                ]
+              },
+              "belief_updates": {},
+              "irreversible": [],
+              "exceptions": [],
+              "participants": [
+                "MARA"
+              ],
+              "resources": [],
+              "consequences": []
+            },
+            "hard_constraints": [],
+            "soft_constraints": [],
+            "evidence": [
+              {
+                "source": "fixture:PROMISE",
+                "excerpt": "",
+                "node_id": "PROMISE"
+              }
+            ],
+            "provenance": {
+              "author": "AI-assisted synthetic fixture",
+              "method": "explicit_authored_fixture",
+              "model": null,
+              "operation": null
+            },
+            "confidence": 1.0,
+            "version": 2,
+            "purpose": "",
+            "duration": 0.0,
+            "completion": "draft"
+          }
+        }
+      }
+    },
+    "edges": {
+      "added": [],
+      "removed": [],
+      "changed": [],
+      "details": {}
+    },
+    "project_fields": [],
+    "project_details": {}
+  },
+  "commit_graph": [
+    {
+      "id": "b81942cdf24bd29b0ca19ddd1c99c445792f6ca0865369809462e667433c3daf",
+      "parents": [
+        "825df261a67fa754666e547d53ae890beb8a95436793b98fbd6ef9b098518f6f"
+      ],
+      "message": "Undo only the setup clarification",
+      "author": "human"
+    },
+    {
+      "id": "825df261a67fa754666e547d53ae890beb8a95436793b98fbd6ef9b098518f6f",
+      "parents": [
+        "ed1400ea563330ec935023a8361e5a6811e5e7895f566a4aa1351b65bbaa02f3",
+        "62645e5c10471ffe50a001f2019d928fe09ef48b2682aeb33745cfe8bdaf8bc2"
+      ],
+      "message": "Choose the alternate wording",
+      "author": "human"
+    },
+    {
+      "id": "62645e5c10471ffe50a001f2019d928fe09ef48b2682aeb33745cfe8bdaf8bc2",
+      "parents": [
+        "71354cb95d3611233281538847616380f12499c28b9845006603e242b7b2a288"
+      ],
+      "message": "Alternate final wording",
+      "author": "human"
+    },
+    {
+      "id": "ed1400ea563330ec935023a8361e5a6811e5e7895f566a4aa1351b65bbaa02f3",
+      "parents": [
+        "71354cb95d3611233281538847616380f12499c28b9845006603e242b7b2a288"
+      ],
+      "message": "Name the final action",
+      "author": "human"
+    },
+    {
+      "id": "71354cb95d3611233281538847616380f12499c28b9845006603e242b7b2a288",
+      "parents": [
+        "c83d6352cfcae5ff5ea63270df6687115b27073f9d97e85e7537c1fa326dc3ba",
+        "6543964e2d5f36044a76f4333db8edfa3840653cb5f4efcda2bf81503d3be44a"
+      ],
+      "message": "Combine setup and climax",
+      "author": "human"
+    },
+    {
+      "id": "6543964e2d5f36044a76f4333db8edfa3840653cb5f4efcda2bf81503d3be44a",
+      "parents": [
+        "05992bc87556fcb047a180c3f01a74a01222e95fec360a812c154cd8f1ff3fd5"
+      ],
+      "message": "Clarify the climax",
+      "author": "human"
+    },
+    {
+      "id": "c83d6352cfcae5ff5ea63270df6687115b27073f9d97e85e7537c1fa326dc3ba",
+      "parents": [
+        "05992bc87556fcb047a180c3f01a74a01222e95fec360a812c154cd8f1ff3fd5"
+      ],
+      "message": "Clarify the early commitment",
+      "author": "Demo author"
+    },
+    {
+      "id": "05992bc87556fcb047a180c3f01a74a01222e95fec360a812c154cd8f1ff3fd5",
+      "parents": [],
+      "message": "Initialize project",
+      "author": "human"
+    }
+  ],
+  "operations": [
+    {
+      "sequence": 19,
+      "action": "checkout",
+      "old_head": "05992bc87556fcb047a180c3f01a74a01222e95fec360a812c154cd8f1ff3fd5",
+      "new_head": "b81942cdf24bd29b0ca19ddd1c99c445792f6ca0865369809462e667433c3daf",
+      "created": "2026-10-20T07:22:50.681603+00:00",
+      "detail": {
+        "revision": "refs/heads/main",
+        "discard_changes": false
+      }
+    },
+    {
+      "sequence": 18,
+      "action": "checkout",
+      "old_head": "b81942cdf24bd29b0ca19ddd1c99c445792f6ca0865369809462e667433c3daf",
+      "new_head": "05992bc87556fcb047a180c3f01a74a01222e95fec360a812c154cd8f1ff3fd5",
+      "created": "2026-10-20T07:22:50.350947+00:00",
+      "detail": {
+        "revision": "05992bc87556",
+        "discard_changes": false
+      }
+    },
+    {
+      "sequence": 17,
+      "action": "create_tags",
+      "old_head": "b81942cdf24bd29b0ca19ddd1c99c445792f6ca0865369809462e667433c3daf",
+      "new_head": "b81942cdf24bd29b0ca19ddd1c99c445792f6ca0865369809462e667433c3daf",
+      "created": "2026-10-20T07:22:49.466710+00:00",
+      "detail": {
+        "ref": "refs/tags/review-ready",
+        "target": "b81942cdf24bd29b0ca19ddd1c99c445792f6ca0865369809462e667433c3daf"
+      }
+    },
+    {
+      "sequence": 16,
+      "action": "commit",
+      "old_head": "825df261a67fa754666e547d53ae890beb8a95436793b98fbd6ef9b098518f6f",
+      "new_head": "b81942cdf24bd29b0ca19ddd1c99c445792f6ca0865369809462e667433c3daf",
+      "created": "2026-10-20T07:22:49.322326+00:00",
+      "detail": {}
+    },
+    {
+      "sequence": 15,
+      "action": "commit",
+      "old_head": "ed1400ea563330ec935023a8361e5a6811e5e7895f566a4aa1351b65bbaa02f3",
+      "new_head": "825df261a67fa754666e547d53ae890beb8a95436793b98fbd6ef9b098518f6f",
+      "created": "2026-10-20T07:22:48.999218+00:00",
+      "detail": {}
+    },
+    {
+      "sequence": 14,
+      "action": "merge_stage",
+      "old_head": "ed1400ea563330ec935023a8361e5a6811e5e7895f566a4aa1351b65bbaa02f3",
+      "new_head": "ed1400ea563330ec935023a8361e5a6811e5e7895f566a4aa1351b65bbaa02f3",
+      "created": "2026-10-20T07:22:48.842382+00:00",
+      "detail": {
+        "remaining_conflicts": 0
+      }
+    },
+    {
+      "sequence": 13,
+      "action": "merge_stage",
+      "old_head": "ed1400ea563330ec935023a8361e5a6811e5e7895f566a4aa1351b65bbaa02f3",
+      "new_head": "ed1400ea563330ec935023a8361e5a6811e5e7895f566a4aa1351b65bbaa02f3",
+      "created": "2026-10-20T07:22:48.524179+00:00",
+      "detail": {
+        "remaining_conflicts": 1
+      }
+    },
+    {
+      "sequence": 12,
+      "action": "checkout",
+      "old_head": "62645e5c10471ffe50a001f2019d928fe09ef48b2682aeb33745cfe8bdaf8bc2",
+      "new_head": "ed1400ea563330ec935023a8361e5a6811e5e7895f566a4aa1351b65bbaa02f3",
+      "created": "2026-10-20T07:22:48.354410+00:00",
+      "detail": {
+        "revision": "refs/heads/main",
+        "discard_changes": false
+      }
+    }
+  ],
+  "final_status": {
+    "branch": "main",
+    "head": "b81942cdf24bd29b0ca19ddd1c99c445792f6ca0865369809462e667433c3daf",
+    "detached": false,
+    "dirty": false,
+    "revision": 20,
+    "changes": {
+      "nodes": {
+        "added": [],
+        "removed": [],
+        "changed": [],
+        "details": {}
+      },
+      "edges": {
+        "added": [],
+        "removed": [],
+        "changed": [],
+        "details": {}
+      },
+      "project_fields": [],
+      "project_details": {}
+    },
+    "pending": null
+  },
+  "simulation": {
+    "applied_count": 22,
+    "findings": []
+  },
+  "transcript": [
+    {
+      "arguments": [
+        "init",
+        "--example"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "branch",
+        "alternate-ending"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "export",
+        "--format",
+        "json",
+        "--output",
+        "draft.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "save",
+        "draft.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "commit",
+        "-m",
+        "Clarify the early commitment",
+        "--author",
+        "Demo author"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "switch",
+        "alternate-ending"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "export",
+        "--format",
+        "json",
+        "--output",
+        "draft.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "save",
+        "draft.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "commit",
+        "-m",
+        "Clarify the climax"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "switch",
+        "main"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "merge",
+        "alternate-ending",
+        "-m",
+        "Combine setup and climax"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "branch",
+        "other-wording"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "export",
+        "--format",
+        "json",
+        "--output",
+        "draft.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "save",
+        "draft.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "commit",
+        "-m",
+        "Name the final action"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "switch",
+        "other-wording"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "export",
+        "--format",
+        "json",
+        "--output",
+        "draft.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "save",
+        "draft.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "commit",
+        "-m",
+        "Alternate final wording"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "switch",
+        "main"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "merge",
+        "other-wording"
+      ],
+      "exit_code": 2
+    },
+    {
+      "arguments": [
+        "status"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "merge",
+        "--resolve",
+        "/nodes/CLIMAX/label=theirs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "commit",
+        "-m",
+        "Choose the alternate wording"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "show",
+        "825df261a67fa754666e547d53ae890beb8a95436793b98fbd6ef9b098518f6f"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "revert",
+        "c83d6352cfcae5ff5ea63270df6687115b27073f9d97e85e7537c1fa326dc3ba",
+        "-m",
+        "Undo only the setup clarification"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "tag",
+        "review-ready"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "diff",
+        "05992bc87556fcb047a180c3f01a74a01222e95fec360a812c154cd8f1ff3fd5",
+        "HEAD"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "log",
+        "--all"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "show",
+        "05992bc87556fcb047a180c3f01a74a01222e95fec360a812c154cd8f1ff3fd5"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "show"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "compile"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "checkout",
+        "05992bc87556"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "status"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "switch",
+        "main"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "reflog",
+        "--limit",
+        "8"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "status"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "api_calls": 0
+}
